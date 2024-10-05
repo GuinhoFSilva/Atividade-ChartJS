@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="display: flex;">
+    
+
+    <div>
+        <canvas id="myChart" style="position: relative; height:40vh; width:40vw">
+            <canvas id="chart"></canvas>
+        </div>></canvas>
+    </div>
+    <div>
+        <canvas id="myChart2" style="position: relative; height:40vh; width:40vw">
+            <canvas id="chart"></canvas>
+        </div>></canvas>
+    </div>
+
+
+</body>
+<script>
+    // Vetor de Labels, const é uma forma de declarar variáveis constantes, o valor é fixo.
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const labelsdois = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+    ];
+
+    // Vetor de data, JSON
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 99, 132)',  // Isso tudo basicamente é o que cria as linhas do gráfico
+            borderColor: 'rgb(255, 99, 132)',
+            data: [30, 29, 28, 25, 22, 23], // <- Dados, está sincronizado com os meses declarados na label acima
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(132, 180, 255)',  // Isso tudo basicamente é o que cria as linhas do gráfico
+            borderColor: 'rgb(132, 180, 255)',
+            data: [80, 82, 80, 85, 80, 83],
+        }
+    ]
+    };
+
+    const data2 = {
+        labels: labelsdois,
+        datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: 'rgb(255, 99, 132)',  // Isso tudo basicamente é o que cria as linhas do gráfico
+            borderColor: 'rgb(255, 99, 132)',
+            data: [22, 24, 27, 23, 20, 18], // <- Dados, está sincronizado com os meses declarados na label acima
+        },
+        {
+            label: 'Umidade Média',
+            backgroundColor: 'rgb(132, 180, 255)',  // Isso tudo basicamente é o que cria as linhas do gráfico
+            borderColor: 'rgb(132, 180, 255)',
+            data: [90, 89, 93, 87, 88, 82],
+        }
+    ]
+    };
+
+    const config = {
+        type: 'line', // Tipo de gráfico
+        data: data,
+        options: {}
+    };
+
+    const config2 = {
+        type: 'bar', // Tipo de gráfico
+        data: data2,
+        options: {}
+    };
+
+
+</script>
+
+<script>
+    
+    const myChart = new Chart(
+        document.getElementById('myChart'), //Criando um novo gráfico 
+        config
+    );
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'), //Criando um novo gráfico 
+        config2
+    );
+
+</script>
+</html>
